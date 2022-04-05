@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    #un jolie commentaire
+    path('admin/', admin.site.urls), 
+    #commentaire exemple
+    #un autre commentaire
 ]
