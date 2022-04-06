@@ -1,1 +1,2 @@
-web: gunicorn CarRentalApp.wsgi
+web: gunicorn rasadjango.wsgi
+release: python manage.py migrate
