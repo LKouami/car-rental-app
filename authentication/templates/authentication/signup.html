@@ -7,35 +7,41 @@
 
 {% block content %}
 <main class="form-signin">
-    <form>
-      <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-      <h1 class="h2 mb-3 fw-normal">Location de voiture</h1>
-      <h4 class="h5 mb-3 fw-normal">Inscrivez-vous</h4>
-  
+  <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="h2 mb-3 fw-normal">Location de voiture</h1>
+  <h4 class="h5 mb-3 fw-normal">Inscrivez-vous</h4>
+
+    <!-- <form method="POST">
+      {% csrf_token %}
+      
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Nom d'utilisateur </label>
+        <input type="text" class="form-control" id="last_name" placeholder="Alain">
+        <label for="last_name">Nom  </label>
       </div>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Nom  </label>
+        <input type="text" class="form-control" id="first_name" placeholder="FOKA">
+        <label for="first_name">Prénom </label>
       </div>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Prénom </label>
+        <input type="email" class="form-control" id="email" placeholder="alainfoka@example.com">
+        <label for="email">Email </label>
       </div>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email </label>
+        <input type="date" class="form-control" id="birth_date" >
+        <label for="birth_date">Date de naissance </label>
       </div>
       <div class="form-floating mt-0 mb-0">
-        <input type="password" class="form-control mt-0 mb-0" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Mot de passe</label>
+        <input type="password" class="form-control mt-0 mb-0" id="password1" placeholder="Password">
+        <label for="password1">Mot de passe</label>
       </div>
       <div class="form-floating mt-0">
-        <input type="password" class="form-control" id="floatingPassword2" placeholder="Password">
-        <label for="floatingPassword2">Repeter Mot de passe</label>
+        <input type="password" class="form-control" id="password2" placeholder="Password">
+        <label for="password2">Repeter Mot de passe</label>
       </div>
+
+      <small style="color: red;">
+        {{error}}
+      </small>
   
       <div class=" my-2">
         <p class="mb-0">Mot de passe oublié ?</p>
@@ -43,7 +49,41 @@
       <div class=" my-0">
         <p>Pas encore de compte ? Inscrivez-vous</p>
       </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Se connecter</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">S'inscrire</button>
+      <p class="mt-5 mb-3 text-muted">&copy; Projet Python ESGIS M1 2021-2022</p>
+    </form> -->
+  
+    <form method="POST" action="{% url 'auth:signup' %}">
+      {% csrf_token %}
+      {% include 'authentication/message_alert.html' %}
+    <div class="form-floating mt-1">
+        {{ form.last_name }}
+        <label for="floatingInput">Nom</label>
+    </div>
+    <div class="form-floating mt-1">
+        {{ form.first_name }}
+        <label for="floatingPassword">Prénoms</label>
+    </div>
+    <div class="form-floating mt-1">
+        {{ form.email }}
+        <label for="floatingPassword">Email</label>
+    </div>
+    <div class="form-floating mt-1">
+        {{ form.birth_date }}
+        <label for="floatingPassword">Date de naissance</label>
+    </div>
+    <div class="form-floating mt-1">
+        {{ form.password }}
+        <label for="password">Mot de passe</label>
+    </div>
+    <div class="form-floating mt-1">
+        {{ form.confirm_password }}
+        <label for="confirm_password">Confirmer le Mot de passe</label>
+    </div>
+    {% for error in form.non_field_errors %}
+    <p class="alert alert-danger">{{error}}</p>
+    {% endfor %}
+      <input type="submit" value="S'inscrire">
       <p class="mt-5 mb-3 text-muted">&copy; Projet Python ESGIS M1 2021-2022</p>
     </form>
   </main>

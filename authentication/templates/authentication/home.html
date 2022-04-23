@@ -1,0 +1,13 @@
+{% extends 'authentication/base.html' %}
+
+{% load static %}
+
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<p>
+    <li><a class="dropdown-item" href="{% url 'auth:logout' %}">Déconnexion</a></li>
+    HOME
+</p> 
+{% endblock %}
