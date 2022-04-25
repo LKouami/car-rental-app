@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'authentication',
     'rentmodule'
 ]
@@ -74,6 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CarRentalApp.wsgi.application'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -130,3 +132,11 @@ AUTH_USER_MODEL = "authentication.CustomUser"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
+
+#Email configuration
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "lskouami@gmail.com"
+EMAIL_HOST_PASSWORD = 'xocnfqvdbqjcbnzg'
+EMAIL_USE_TLS = True

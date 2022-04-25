@@ -19,7 +19,12 @@ app_name = "auth"
 urlpatterns = [
     
     path('',views.home, name='home'),
+    path('auth/password_reset',views.password_reset, name='password_reset'),
+    path('auth/password_reset_confirm/<uidb64>/<token>/',views.password_reset_confirm, name='password_reset_confirm'),
+    path('auth/password_reset_complete',views.password_reset_complete, name='password_reset_complete'),
+    path('auth/password_reset_done',views.password_reset_done, name='password_reset_done'),
     path('auth/login/',views.login, name='login'),
     path('auth/signup/',views.signup, name='signup'),
     path('logout/', views.logout, name="logout"),
+    
 ]

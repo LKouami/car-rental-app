@@ -83,6 +83,9 @@
     {% for error in form.non_field_errors %}
     <p class="alert alert-danger">{{error}}</p>
     {% endfor %}
+    <div class=" my-0">
+      <p>Déjà un compte ? <a class="" href="{% url 'auth:login' %}"> Connectez-vous</a></p>
+    </div>
       <input type="submit" value="S'inscrire">
       <p class="mt-5 mb-3 text-muted">&copy; Projet Python ESGIS M1 2021-2022</p>
     </form>

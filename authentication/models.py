@@ -38,15 +38,15 @@ class CustomUser(AbstractBaseUser):
         max_length=255,
         blank=False
     )
-    first_name = models.CharField(max_length=50, blank=False, default="")
-    last_name = models.CharField(max_length=50, blank=False, default="")
+    first_name = models.CharField(max_length=50, blank=True, default="")
+    last_name = models.CharField(max_length=50, blank=True, default="")
     birth_date = models.DateField(blank=False)
     date_joined = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["birth_date"]
+    REQUIRED_FIELDS = ["birth_date","first_name", "last_name"]
     objects = MyUserManager()
     def has_perm(self, perm, obj=None):
         return True
