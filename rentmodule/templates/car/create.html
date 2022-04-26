@@ -1,0 +1,21 @@
+{% extends 'authentication/base.html' %}
+
+{% load static %}
+
+
+{% block title %} Create Car {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for car in cars %}
+<div class="">{{car.brand}}</div>
+        {% endfor %}
+    </div>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button href="" type="submit">Save</button>
+</form>
+</div>
+{% endblock %}

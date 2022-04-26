@@ -14,11 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from turtle import home
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from CarRentalApp import settings
 from authentication.views import login,signup 
+from rentmodule import views
 urlpatterns = [
     path('admin-panel/', admin.site.urls),
     
-    path('', include('authentication.urls', namespace='auth')),
-]
+    path('', include('authentication.urls', namespace='auth')),path('admin/', admin.site.urls),
+    
+    path('car/', views.index, name='index'),
+    path('car/car_detail/<int:pk>/', views.car_detail, name='car_detail'),
+    path('car/edit/<int:pk>/', views.edit, name='edit'),
+    path('car/create/', views.create, name='create'),
+    path('car/delete/<int:pk>/', views.delete, name='delete'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

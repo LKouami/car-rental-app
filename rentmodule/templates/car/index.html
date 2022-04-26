@@ -1,0 +1,32 @@
+{% extends 'authentication/base.html' %}
+{% block content %}
+<div class="container-fluid">
+           
+            <a href="{% url 'create' %}">
+                <button type="button" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus">Créer nouveau</span>
+                </button>
+            </a>
+           
+    {% for car in cars %}
+    <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item ">
+                  {{ car.brand }} {{car.color}}  <span class="badge"></span>
+                  <a href="{% url 'car_detail' car.pk %}">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus">detail</span>
+                    </button>
+                </a> 
+                <a href="{% url 'edit' car.pk %}">
+                  
+                        <span class="glyphicon glyphicon-plus">detail</span>
+                  
+                </a>
+                </li>
+            </ul>
+           
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
