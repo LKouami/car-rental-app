@@ -19,6 +19,6 @@ from django.urls import include, path
 from authentication.views import login,signup 
 urlpatterns = [
     path('admin-panel/', admin.site.urls),
-    
     path('', include('authentication.urls', namespace='auth')),
+    path('', include('rentmodule.urls', namespace='rent')),
 ]
