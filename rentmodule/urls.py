@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from CarRentalApp import settings
+from django.conf.urls.static import static
 app_name = "rent"
 urlpatterns = [
     
     path('',views.home, name='home'),
+    path('cars_list',views.cars_list, name='cars_list'),
+    path('cars_detail/<int:car_id>/',views.cars_detail, name='cars_detail'),
+    path('locations_list',views.locations_list, name='locations_list'),
+    path('about',views.about, name='about'),
     
     
-]
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -75,7 +75,7 @@ def login(request):
                     nextPage = params['next']
                     return redirect(nextPage)
             except:
-                return redirect("auth:home")
+                return redirect("rent:home")
         else:
             messages.error(request, "Identifiant incorrect.")
             return render(request, "authentication/login.html")

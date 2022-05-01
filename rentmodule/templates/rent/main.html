@@ -9,23 +9,17 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="{% static "css/heroes.css" %}" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="{% static "css/knowledge_base.css" %}" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="{% static "css/ticket_list.css" %}" rel="stylesheet" /> 
-    <!-- Custom styles for this template -->
     <link href="{% static "css/404.css" %}" rel="stylesheet" /> 
     <!-- Custom styles for this template -->
     <link href="{% static "css/500.css" %}" rel="stylesheet" /> 
     <!-- Custom js for this template -->
     
   </head>
-  <body >
+  <body>
     <div class="container-fluid p-0 ">
-      <div class="row m-0 " style="height: 100vh; width:99%">
-        <div class="col-auto p-0" style="height: 100%;">{% include 'rent/sidebar.html' %}</div>
-        <div class="col" style="height: 100vh;overflow: auto;">{% block content %} {% endblock %}</div>
+      <div class="row m-0 " style=" width:100%; padding-bottom: 15px;">
+        {% include 'rent/sidebar.html' %}
+        <div style="margin-top: 2%;">{% block content %} {% endblock %}</div>
       </div>
     </div>
   </body>

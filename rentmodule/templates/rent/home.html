@@ -15,8 +15,8 @@
           <h1 class="display-5 fw-bold lh-1 mb-3">Bienvenu sur la plateforme de location de voiture</h1>
           <p class="lead">Ce site vous permet de faire des reservations et des locations de voiture. </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-           <a  href=""><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Nos Voitures</button></a> 
-           <a  href=""> <button type="button" class="btn btn-outline-secondary btn-lg px-4">Mes Locations</button></a>
+           <a  href="{% url 'rent:cars_list' %}"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Nos Voitures</button></a> 
+           <a  href="{% url 'rent:locations_list' %}"> <button type="button" class="btn btn-outline-secondary btn-lg px-4">Mes Locations</button></a>
           </div>
         </div>
       </div>

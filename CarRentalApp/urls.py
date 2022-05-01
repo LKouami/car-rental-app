@@ -22,3 +22,4 @@ urlpatterns = [
     path('', include('authentication.urls', namespace='auth')),
     path('', include('rentmodule.urls', namespace='rent')),
 ]
+

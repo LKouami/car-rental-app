@@ -2,7 +2,6 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.base_user import BaseUserManager
-from rentmodule.models import Reservation
 # Create your models here.
 class MyUserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, birth_date, password=None, **extra_fields):
@@ -47,7 +46,6 @@ class CustomUser(AbstractBaseUser):
     cni_num=models.CharField(max_length=50, blank=True, null=True)
     dlicense_num=models.CharField(max_length=50, blank=True, null=True)
     date_joined = models.DateTimeField(auto_now_add=True)
-    reservations = models.ForeignKey(Reservation, on_delete=models.SET_NULL, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
