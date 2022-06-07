@@ -1,0 +1,43 @@
+{% extends 'rent/main.html' %}
+
+
+{% load static %} 
+
+{% block title %} My cars {% endblock %}
+
+    
+{% block content %}
+<div class="row mx-5" style="margin-top: 3%">
+    {% for item in cars %} 
+    {% if item.state == "Libre" %}
+    <div class="col-auto">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <img class="card-img-top" src="{{item.default_picture.url}}" style="height : 150px;" alt="Card image cap">
+            <div class="card-header">{{item.brand|truncatechars:50}}</div>
+            <div class="card-body">
+                <span>{{item.price}} xof / jour</span>
+                <a href="{% url 'rent:cars_detail' car_id=item.id %}" class="text-white">
+                    <h5 class="card-title">Disponible</h5>
+                </a>
+                <p class="card-text"> {{item.modele|truncatechars:120}}</p>
+            </div>
+        </div>
+        <div></div>
+    </div>
+    {% else %}
+    <div class="col-auto">
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <img class="card-img-top" src="media/{{item.default_picture}}" style="height : 150px;" alt="Card image cap">
+            <div class="card-header">{{item.brand|truncatechars:50}}</div>
+            <div class="card-body">
+                <span>{{item.price}} xof / jour</span>
+                    <h5 class="card-title">Déjà réservé</h5>
+                <p class="card-text"> {{item.modele|truncatechars:120}}</p>
+            </div>
+        </div>
+    </div>
+
+    
+    {% endif %} {% endfor %}
+</div>
+{% endblock %}
