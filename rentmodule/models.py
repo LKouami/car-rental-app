@@ -40,7 +40,7 @@ class Car(models.Model):
         verbose_name_plural = "Cars"
 
     def __str__(self):
-        return self.brand
+        return self.modele
     
     def get_absolute_url(self):
         return reverse("rent:car_details",
@@ -69,15 +69,18 @@ class Reservation(models.Model):
     begin_date_time = models.DateTimeField(blank=False)
     end_date_time = models.DateTimeField(blank=False)
     state = models.CharField(max_length=25, blank=False, choices=RESERVATION_STATE, default="En attente")
+    unique_id = models.CharField(max_length=50, blank=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, null=True )
     client = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     class Meta:
         verbose_name = "Reservation"
         verbose_name_plural = "Reservations"
+    def __str__(self):
+        return self.unique_id
 
 class Bill(models.Model):
     number = models.CharField(max_length=50, blank=True)
-    date_of_bill = models.DateTimeField(auto_now=True)
+    date_of_bill = models.DateTimeField(auto_now=True, blank=True)
     client = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, null=True )
     reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE, null=True )

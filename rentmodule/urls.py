@@ -23,7 +23,9 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('cars_list',views.cars_list, name='cars_list'),
     path('cars_detail/<int:car_id>/',views.cars_detail, name='cars_detail'),
+    path('reservation_actions/<int:car_id>/',views.reservation_actions, name='reservation_actions'),
     path('locations_list',views.locations_list, name='locations_list'),
+    path('download_bill/<int:reservation_id>/',views.billgen, name='billgen'),
     path('about',views.about, name='about'),
     
     

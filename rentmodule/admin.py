@@ -56,7 +56,7 @@ class CarImagesAdmin(admin.ModelAdmin):
 
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ('begin_date_time', 'end_date_time', 'state','car','client')
+    list_display = ('id','begin_date_time', 'end_date_time', 'unique_id', 'state','car','client')
     list_filter = ( 'state','car','client')
     list_per_page = 20
     fieldsets = (
